@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Square from '../components/Square';
-import Board from '../components/Board';
 
 class Game extends Component {
   state = {
@@ -22,11 +21,16 @@ class Game extends Component {
 }
 
     render () {
-      const board = [];
-        for (let i=1; i<= this.state.numberOfColumns;i++) {
-          board.push(<Square row/>)
+      const columns = [];
+        for (let i=1; i<= this.state.numberOfColumns; i++) {
+          columns.push(<Square row/>);
         }
 
+        const board = [];
+        for (let i=1; i<= this.state.numberOfRows; i++){
+          board.push(columns);
+          board.push(<br/>)
+        }
 
         return (
           <div>
